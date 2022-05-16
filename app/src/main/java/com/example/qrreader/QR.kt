@@ -88,22 +88,19 @@ class QR : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
     fun actMail (data: String){
         var auxC = data.indexOf("TO:")
-        var auxfC = data.indexOf(";SUB")
+        var auxfC = data.indexOf(";SUB:", auxC+3)
         var correo = ""
         for (i in auxC+3 until auxfC) correo += (data[i])
         Log.d("QRLEIDO", correo)
 
-
-        var auxS = data.indexOf("SUB:")
-        var auxfS = data.indexOf(";BODY", auxfC+1)
+        var auxfS = data.indexOf(";BODY:", auxfC+5)
         var sub = ""
-        for (i in auxS+4 until auxfS) sub += (data[i])
+        for (i in auxfC+5 until auxfS) sub += (data[i])
         Log.d("QRLEIDO", sub)
 
-        var auxB = data.indexOf("BODY:")
-        var auxfB = data.indexOf(";;", auxfS+1)
+        var auxfB = data.indexOf(";;", auxfS+6)
         var body = ""
-        for (i in auxB+5 until auxfB) body += (data[i])
+        for (i in auxfS+6 until auxfB) body += (data[i])
         Log.d("QRLEIDO", body)
 
         var intent = Intent(Intent.ACTION_SENDTO)
@@ -194,12 +191,11 @@ class QR : AppCompatActivity(), ZXingScannerView.ResultHandler {
         for (i in auxfemail+4 until auxfurl) url += (data[i])
         Log.d("QRLEIDO", "url:$url")
 
-        //
-        url = "https://akjskdlfjas.com"
-        org = "patitos"
-        title = "jefe"
-        telw = "511111111"
-        telfax = "81111111"
+        //url = "https://akjskdlfjas.com"
+        //org = "patitos"
+        //title = "jefe"
+        //telw = "511111111"
+        //telfax = "81111111"
         var intent = Intent(Intent.ACTION_INSERT).apply {
             type = ContactsContract.Contacts.CONTENT_TYPE
             putExtra(ContactsContract.Intents.Insert.NAME, name)
@@ -211,7 +207,6 @@ class QR : AppCompatActivity(), ZXingScannerView.ResultHandler {
             putExtra(ContactsContract.Intents.Insert.TERTIARY_PHONE, telw)
             putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, telfax)
             putExtra(ContactsContract.Intents.Insert.EMAIL, email)
-            //putExtra(ContactsContract.Intents.Insert.IM_PROTOCOL, url)
         }
         startActivity(intent)
         finish()

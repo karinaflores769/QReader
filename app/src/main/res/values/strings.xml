@@ -9,7 +9,7 @@
     <string name="cancelar">Cancelar</string>
     <string name="sinperm">El permiso de la cámara no se ha concedido. Otorga el permiso para poder acceder a la cámara.</string>
     <string name="error">Error</string>
-    <string name="errormsg">El código QR no es válido para la aplicación</string>
+    <string name="errormsg">El código QR no es válido para la aplicación.</string>
 
 
 
