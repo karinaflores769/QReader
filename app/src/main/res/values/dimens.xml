@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splashname">60sp</dimen>
+    <dimen name="autr">28sp</dimen>
+    <dimen name="version">22sp</dimen>
+    <dimen name="titledata">70sp</dimen>
+    <dimen name="textdata">30sp</dimen>
+
+</resources>

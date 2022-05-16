@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">QR Reader</string>
+    <string name="autor">Karina Alejandra Flores Cruz</string>
+    <string name="version">Versión 1.0</string>
+    <string name="instruct">Haz click en la cámara para comenzar...</string>
+    <string name="askperm">Permiso requerido</string>
+    <string name="msgperm">Es necesario acceder a la cámara para leer el código QR.</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="sinperm">El permiso de la cámara no se ha concedido. Otorga el permiso para poder acceder a la cámara.</string>
+    <string name="error">Error</string>
+    <string name="errormsg">El código QR no es válido para la aplicación</string>
+
+
+
+</resources>
