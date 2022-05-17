@@ -16,7 +16,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.zxing.Result
 import me.dm7.barcodescanner.zxing.ZXingScannerView
-import java.net.MalformedURLException
 import java.net.URL
 
 class QR : AppCompatActivity(), ZXingScannerView.ResultHandler {
@@ -58,12 +57,12 @@ class QR : AppCompatActivity(), ZXingScannerView.ResultHandler {
                 Log.d("QRLEIDO", "URL")
                 actURL(scanResult)
             }
-            scanResult.startsWith("MATMSG") || scanResult.startsWith("mail")-> {
+            scanResult.startsWith("MATMSG") -> {
                 Log.d("QRLEIDO", "CORREO")
                 actMail(scanResult)
 
             }
-            scanResult.startsWith("SMS") || scanResult.startsWith("sms")-> {
+            scanResult.startsWith("SMS") -> {
                 Log.d("QRLEIDO", "MENSAJE")
                 actMSG(scanResult)
             }
@@ -73,10 +72,7 @@ class QR : AppCompatActivity(), ZXingScannerView.ResultHandler {
             }
             else -> error()
         }
-
     }
-
-
 
     fun actURL (data:String){
         val url = URL(data)
@@ -207,6 +203,7 @@ class QR : AppCompatActivity(), ZXingScannerView.ResultHandler {
             putExtra(ContactsContract.Intents.Insert.TERTIARY_PHONE, telw)
             putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, telfax)
             putExtra(ContactsContract.Intents.Insert.EMAIL, email)
+            putExtra(ContactsContract.Intents.Insert.DATA, url)
         }
         startActivity(intent)
         finish()
@@ -278,7 +275,5 @@ class QR : AppCompatActivity(), ZXingScannerView.ResultHandler {
                 }
             }
         }
-
     }
-
 }
